@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_golang_yt/colors/app_colors.dart';
+import 'package:flutter_golang_yt/widgets/button_ui.dart';
 import 'package:flutter_golang_yt/widgets/list_of_task_widget.dart';
 
 class AllTask extends StatelessWidget {
@@ -107,9 +108,40 @@ class AllTask extends StatelessWidget {
                       },
                       confirmDismiss: (DismissDirection direction) async {
                         if (direction == DismissDirection.startToEnd) {
+                          showModalBottomSheet(
+                              barrierColor: Colors.transparent,
+                              backgroundColor: Colors.transparent,
+                              context: context,
+                              builder: (_) {
+                                return Container(
+                                  padding: const EdgeInsets.only(
+                                      left: 20, right: 20),
+                                  height: 400,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF2e3253).withOpacity(0.4),
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        topRight: Radius.circular(20)),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      ButtonWidget(
+                                          backgroundcolor: AppColors.mainColor,
+                                          name: "View",
+                                          textColor: Colors.white),
+                                      SizedBox(height: 20),
+                                      ButtonWidget(
+                                          backgroundcolor: AppColors.mainColor,
+                                          name: "Edit",
+                                          textColor: Colors.white),
+                                    ],
+                                  ),
+                                );
+                              });
                           return false;
                         } else {
-                          return Future.delayed(Duration(seconds: 1),
+                          return Future.delayed(const Duration(seconds: 1),
                               () => direction == DismissDirection.endToStart);
                         }
                       },
