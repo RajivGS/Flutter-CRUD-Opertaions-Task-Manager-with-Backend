@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_golang_yt/colors/app_colors.dart';
 import 'package:flutter_golang_yt/widgets/button_ui.dart';
 import 'package:flutter_golang_yt/widgets/list_of_task_widget.dart';
+import 'package:get/get.dart';
 
 class AllTask extends StatelessWidget {
   const AllTask({Key? key}) : super(key: key);
@@ -55,10 +56,14 @@ class AllTask extends StatelessWidget {
                   image: AssetImage("assets/header.jpg"),
                 ),
               ),
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.arrow_back),
-                color: AppColors.secondaryColor,
+              child: InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: AppColors.secondaryColor,
+                ),
               ),
             ),
             const SizedBox(height: 10),
@@ -118,8 +123,9 @@ class AllTask extends StatelessWidget {
                                       left: 20, right: 20),
                                   height: 400,
                                   decoration: BoxDecoration(
-                                    color: Color(0xFF2e3253).withOpacity(0.4),
-                                    borderRadius: BorderRadius.only(
+                                    color: const Color(0xFF2e3253)
+                                        .withOpacity(0.4),
+                                    borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(20),
                                         topRight: Radius.circular(20)),
                                   ),
@@ -130,7 +136,7 @@ class AllTask extends StatelessWidget {
                                           backgroundcolor: AppColors.mainColor,
                                           name: "View",
                                           textColor: Colors.white),
-                                      SizedBox(height: 20),
+                                      const SizedBox(height: 20),
                                       ButtonWidget(
                                           backgroundcolor: AppColors.mainColor,
                                           name: "Edit",

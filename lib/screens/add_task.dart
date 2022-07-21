@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_golang_yt/colors/app_colors.dart';
 import 'package:flutter_golang_yt/widgets/button_ui.dart';
 import 'package:flutter_golang_yt/widgets/textfield_widget.dart';
+import 'package:get/get.dart';
 
 class AddTaskState extends StatelessWidget {
   const AddTaskState({Key? key}) : super(key: key);
@@ -30,11 +31,15 @@ class AddTaskState extends StatelessWidget {
                 Column(
                   children: [
                     const SizedBox(height: 40),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.arrow_back),
-                      color: AppColors.secondaryColor,
-                    )
+                    InkWell(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: AppColors.secondaryColor,
+                      ),
+                    ),
                   ],
                 ),
                 Column(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_golang_yt/screens/all_task.dart';
-
-import 'screens/add_task.dart';
+import 'package:flutter_golang_yt/screens/home_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AllTask(),
+      home: HomeScreen(),
     );
   }
 }
